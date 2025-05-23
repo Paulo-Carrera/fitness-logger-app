@@ -1,0 +1,34 @@
+{# templates/macros.html #}
+{% macro exercise_modal(we) %}
+<div class="modal fade" id="exerciseModal{{ we.id }}" tabindex="-1" aria-labelledby="exerciseModalLabel{{ we.id }}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exerciseModalLabel{{ we.id }}">{{ we.exercise.name }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ we.exercise.description|default("No description available.") }}</p>
+        <form method="POST" action="{{ url_for('update_workout_exercise', we_id=we.id) }}">
+          {% if we.exercise.is_cardio %}
+            <div class="mb-3">
+              <label for="duration{{ we.id }}">Duration (minutes):</label>
+              <input type="number" name="duration" id="duration{{ we.id }}" value="{{ we.duration|default(10) }}" class="form-control">
+            </div>
+          {% else %}
+            <div class="mb-3">
+              <label for="sets{{ we.id }}">Sets:</label>
+              <input type="number" name="sets" id="sets{{ we.id }}" value="{{ we.sets|default(3) }}" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="reps{{ we.id }}">Reps:</label>
+              <input type="number" name="reps" id="reps{{ we.id }}" value="{{ we.reps|default(10) }}" class="form-control">
+            </div>
+          {% endif %}
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}

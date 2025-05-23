@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Push-Up",
+    "description": "A bodyweight exercise targeting the chest, shoulders, and triceps."
+  },
+  {
+    "id": 2,
+    "name": "Squat",
+    "description": "A lower body exercise that strengthens the thighs, hips, and buttocks."
+  },
+  {
+    "id": 3,
+    "name": "Pull-Up",
+    "description": "An upper-body strength exercise that works the back and biceps."
+  },
+  {
+    "id": 4,
+    "name": "Sit-Up",
+    "description": "Abdominal exercise that strengthens the core muscles."
+  },
+  {
+    "id": 5,
+    "name": "Bench Press",
+    "description": "A compound weightlifting movement that targets the chest, shoulders, and triceps."
+  },
+  {
+    "id": 6,
+    "name": "Deadlift",
+    "description": "A strength training exercise that targets the posterior chain including glutes, hamstrings, and back."
+  },
+  {
+    "id": 7,
+    "name": "Overhead Press",
+    "description": "A weightlifting exercise that works the shoulders, upper chest, and triceps."
+  },
+  {
+    "id": 8,
+    "name": "Barbell Row",
+    "description": "A back-focused strength exercise using a barbell to develop lats and upper back."
+  },
+  {
+    "id": 9,
+    "name": "Bicep Curl",
+    "description": "An isolation exercise that targets the biceps using dumbbells or a barbell."
+  },
+  {
+    "id": 10,
+    "name": "Tricep Extension",
+    "description": "An exercise that targets the triceps using a dumbbell, barbell, or cable machine."
+  },
+  {
+    "id": 11,
+    "name": "Running",
+    "description": "A cardio activity that improves cardiovascular endurance and burns calories.",
+    "is_cardio": true
+  },
+  {
+    "id": 12,
+    "name": "Cycling",
+    "description": "A low-impact cardiovascular exercise that strengthens the legs and improves endurance.",
+    "is_cardio": true
+  },
+  {
+    "id": 13,
+    "name": "Jump Rope",
+    "description": "A full-body cardio exercise that improves coordination and cardiovascular fitness.",
+    "is_cardio": true
+  },
+  {
+    "id": 14,
+    "name": "Plank",
+    "description": "An isometric core exercise that strengthens abdominal and lower back muscles."
+  },
+  {
+    "id": 15,
+    "name": "Lunges",
+    "description": "A lower-body strength exercise targeting the quads, hamstrings, and glutes."
+  }
+]

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user.username|default('Friend') }}!</h2>
+
+{% if user.streak_count|default(0) >= 2 %}
+  <div class="alert alert-success">
+    🔥 You're on a {{ user.streak_count }}-day streak! Keep it up!
+  </div>
+{% endif %}
+
+{% if timezones %}
+<form method="POST" action="{{ url_for('set_timezone') }}" class="mb-3">
+  <label for="timezone">Timezone:</label>
+  <select name="timezone" id="timezone" class="form-select d-inline w-auto">
+    {% for tz in timezones %}
+      <option value="{{ tz }}" {% if tz == session.get('timezone', 'UTC') %}selected{% endif %}>{{ tz }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit" class="btn btn-sm btn-secondary">Set</button>
+</form>
+{% endif %}
+
+{% if workouts %}
+<a href="{{ url_for('create_workout') }}" class="btn btn-primary mb-3" title="Add new workout">+</a>
+<div class="list-group">
+  {% for workout in workouts|sort(attribute='date', reverse=True) %}
+    <div class="list-group-item mb-3">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+        <div>
+          <h5 class="mb-1">{{ workout.name|default('Unnamed Workout') }}</h5>
+          <small class="text-muted">
+            {{ workout.date|convert_timezone(session.get('timezone', 'UTC'))|default('Unknown Date') }}
+          </small>
+        </div>
+        <form method="POST" action="{{ url_for('delete_workout', workout_id=workout.id) }}" class="mt-2 mt-md-0" onsubmit="return confirm('Delete this workout?');">
+          <button type="submit" class="btn btn-danger btn-sm" title="Delete workout">Delete</button>
+        </form>
+      </div>
+      <ul class="mt-2 mb-0 ps-3">
+        {% if workout.exercises %}
+          {% for we in workout.exercises %}
+            <li class="mb-2">
+              <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#exerciseModal{{ we.id }}">
+                <strong>{{ we.exercise.name }}</strong>
+              </button>
+              {% if we.exercise.is_cardio %}
+                – <span>Duration: {{ we.duration }} min</span>
+              {% else %}
+                – <span>{{ we.sets }} sets × {{ we.reps }} reps</span>
+              {% endif %}
+
+              {{ macros.exercise_modal(we) }}
+            </li>
+             {% endfor %}
+        {% else %}
+          <li>No exercises added yet.</li>
+        {% endif %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+  <div class="alert alert-info">
+    You haven't created any workouts yet. Click below to get started!
+  </div>
+  <a href="{{ url_for('create_workout') }}" class="btn btn-success">Create Your First Workout</a>
+{% endif %}
+{% endblock %}
+

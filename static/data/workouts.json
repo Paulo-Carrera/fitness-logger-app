@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2025-05-20T18:59:00.972855",
+    "exercises": []
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-05-20T19:01:25.705836",
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Push-Up",
+        "description": "A bodyweight exercise targeting the chest, shoulders, and triceps."
+      },
+      {
+        "id": 3,
+        "name": "Pull-Up",
+        "description": "An upper-body strength exercise that works the back and biceps."
+      },
+      {
+        "id": 4,
+        "name": "Sit-Up",
+        "description": "Abdominal exercise that strengthens the core muscles."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestamp": "2025-05-20T19:01:46.946692",
+    "exercises": []
+  },
+  {
+    "id": 4,
+    "timestamp": "2025-05-20T19:04:48.166408",
+    "exercises": []
+  },
+  {
+    "id": 5,
+    "timestamp": "2025-05-20T19:10:07.222961",
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Push-Up",
+        "description": "A bodyweight exercise targeting the chest, shoulders, and triceps."
+      },
+      {
+        "id": 4,
+        "name": "Sit-Up",
+        "description": "Abdominal exercise that strengthens the core muscles."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "timestamp": "2025-05-20T19:12:10.716120",
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Push-Up",
+        "description": "A bodyweight exercise targeting the chest, shoulders, and triceps."
+      },
+      {
+        "id": 4,
+        "name": "Sit-Up",
+        "description": "Abdominal exercise that strengthens the core muscles."
+      }
+    ]
+  }
+]
